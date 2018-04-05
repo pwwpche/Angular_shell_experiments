@@ -17,6 +17,9 @@ import { AppRoutes }                          from './app.routes';
     BrowserModule,
     AppRoutes
   ],
+  exports: [
+    AppComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

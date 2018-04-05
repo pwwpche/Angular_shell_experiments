@@ -14,7 +14,7 @@ atlassian-ide-plugin.xml
 
 # Generated or managed sources
 /generated-sources/
-/node_modules
+*/node_modules/*
 /build
 /coverage
 *.tgz

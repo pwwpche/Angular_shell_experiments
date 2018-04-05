@@ -10,8 +10,6 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {}
 
-  heroes : String = "HeroesComponent2_1";
-
-  listData: String[] = ['a', 'b', 'c', 'd'];
+  heroes : String = "HeroesComponent Main2";
   
 }

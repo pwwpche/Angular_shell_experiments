@@ -59,7 +59,6 @@ var config = {
     new webpack.HotModuleReplacementPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
           name: "vendor",
-          chunkFilename: '[name]-chunk.js',
           filename: 'vendor.bundle.js'
       }),
     new webpack.ContextReplacementPlugin(

@@ -11,7 +11,7 @@ const WebpackNameModuleIdPlugin = require('webpack-name-moduleId-plugin');
 
 var config = {
   entry: {
-    bundle: ['./src/main.ts'],
+    bundle: ['./src/app/app.module.ts'],
     vendor: [
     "reflect-metadata",
     "zone.js",
@@ -29,14 +29,18 @@ var config = {
   },
   output: {
     path: buildPath,
+    // chunkFilename: '[name]-chunk.js',
     filename: '[name].js',
+    libraryTarget: 'umd',
+    library: 'repo1'
   },
   externals: {},
   module: {
     rules: [
         {
         test: /\.ts$/,
-        loaders: ['ts-loader','angular-router-loader?debug=true', 'angular2-template-loader'],
+        //loaders: ['ts-loader','angular-router-loader?debug=true', 'angular2-template-loader'],
+        loaders: ['ts-loader', 'angular2-template-loader'],
         exclude: /main\.aot\.ts$/
       },
       {
@@ -55,11 +59,11 @@ var config = {
               template: './src/index.html',
           }),
     new WebpackNameModuleIdPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-      new webpack.optimize.CommonsChunkPlugin({
-          name: "vendor",
-          filename: 'vendor.bundle.js'
-      }),
+    //new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: "vendor",
+        filename: 'vendor.bundle.js'
+    }),
     new webpack.ContextReplacementPlugin(
         /angular(\\|\/)core/, path.resolve(__dirname, '../src')),
     new webpack.LoaderOptionsPlugin({

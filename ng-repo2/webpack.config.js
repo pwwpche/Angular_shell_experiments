@@ -29,6 +29,7 @@ var config = {
   },
   output: {
     path: buildPath,
+    chunkFilename: '[name]-chunk.js',
     filename: '[name].js',
   },
   externals: {},

@@ -1,0 +1,16 @@
+function returnPromise() {
+	createPromise().then( () => {console.log('in then')} )
+}
+
+function createPromise() {
+	var promise = new Promise( (res, rej) => { window['resFunc'] = res } );
+	async_load_script_no_callback();
+	return promise;
+}
+
+script:
+func({
+	window['resFunc']();
+})
+
+returnPromise()

@@ -44,6 +44,10 @@ var config = {
         test: /\.html$/,
         loader: 'raw-loader',
       },
+      {
+        test: /chunk\.js/,
+        loader: 'script-loader'
+      },
       {test: /\.less$/, use: ['raw-loader', 'less-loader']},
       {test: /\.css$/, use: ['raw-loader', 'css-loader']},
     ]
@@ -55,8 +59,9 @@ var config = {
               filename: 'index.html',
               template: './src/index.html',
           }),
+
     new WebpackNameModuleIdPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
           name: "vendor",
           filename: 'vendor.bundle.js'
